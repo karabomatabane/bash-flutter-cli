@@ -1,0 +1,35 @@
+import 'package:core/domain/models/consumables/empty_consumable.dart';
+import 'package:core/domain/models/content_view_state.dart';
+import 'package:core/domain/models/content_view_state_data.dart';
+import 'package:core/domain/models/nav_model.dart';
+import 'package:core/exception/base_exception.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+
+part '{{.Name | toSnake}}_event.dart';
+part '{{.Name | toSnake}}_state.dart';
+
+typedef {{.Name | toPascal}}ViewState =
+    ContentViewState<{{.Name | toPascal}}State, BaseException, NavState>;
+
+class {{.Name | toPascal}}Bloc extends Bloc<{{.Name | toPascal}}Event, {{.Name | toPascal}}ViewState> {
+  {{.Name | toPascal}}Bloc()
+    : super(
+        {{.Name | toPascal}}ViewState(
+          data: const {{.Name | toPascal}}State.initial(),
+          isLoading: false,
+          error: EmptyConsumable<BaseException>(),
+          onNav: EmptyConsumable<NavState>(),
+        ),
+      ) {
+    on<Load>(_onLoad);
+  }
+
+  Future<void> _onLoad(
+    Load event,
+    Emitter<{{.Name | toPascal}}ViewState> emit,
+  ) async {
+    // Todo: do something...
+  }
+}

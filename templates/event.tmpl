@@ -1,0 +1,6 @@
+part of '{{.Name | toSnake}}_bloc.dart';
+
+@immutable
+abstract class {{.Name | toPascal}}Event {}
+
+class Load implements {{.Name | toPascal}}Event {}

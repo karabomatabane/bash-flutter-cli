@@ -1,0 +1,19 @@
+part of '{{.Name | toSnake}}_bloc.dart';
+
+@immutable
+class {{.Name | toPascal}}State implements ContentViewStateData {
+  const {{.Name | toPascal}}State();
+
+  const {{.Name | toPascal}}State.initial();
+
+  @override
+  bool get isEmpty => false; // Todo: implement empty state!
+
+  // Todo: properties go here
+
+  @override
+  {{.Name | toPascal}}State copyWith() {
+    // Todo: implement copyWith
+    throw UnimplementedError();
+  }
+}
